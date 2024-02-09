@@ -274,7 +274,7 @@ install_options() {
         ohmyzsh) install_oh_my_zsh ;;
         nerdfonts) install_nerdfonts ;;
         pk10) install_powerlevel10k ;;
-        docker) install_docker ;;
+        docker) install_docker_engine ;;
         pyenv) install_pyenv ;;
         all) install_powerlevel10k ;;
         *)
