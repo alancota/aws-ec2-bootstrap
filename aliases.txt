@@ -1,0 +1,2 @@
+alias ez="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
