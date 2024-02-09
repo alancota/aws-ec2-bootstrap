@@ -105,8 +105,9 @@ install_docker_engine() {
     sudo systemctl enable docker.service
     sudo systemctl enable containerd.service
 
-    echo "Testing if the user $USER can run docker without sudo"
-    docker run hello-world
+    echo "Docker installation complete."
+    echo "Please logout and log back in in order to access docker commands without sudo."
+    echo "To test your docker installation you can run: docker run hello-world"
 
 }
 
