@@ -204,6 +204,9 @@ install_powerlevel10k() {
     echo "Installing Powerlevel10k"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
+    echo "Download Powerlevel10k configuration"
+    curl -o $HOME/.p10k.zsh https://raw.githubusercontent.com/alancota/aws-ec2-bootstrap/main/.p10k.zsh
+
     # Call function to update ZSH_THEME
     update_zsh_theme
 
