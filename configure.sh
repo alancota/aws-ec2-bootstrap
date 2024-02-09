@@ -1,5 +1,9 @@
 #!/bin/bash
 
+ALIASES="https://raw.githubusercontent.com/alancota/aws-ec2-bootstrap/main/aliases.txt"
+FOLDERS="https://github.com/alancota/aws-ec2-bootstrap/blob/main/folders.txt"
+PACKAGES="https://github.com/alancota/aws-ec2-bootstrap/blob/main/packages.txt"
+
 # Function to display usage
 usage() {
     echo "Usage: $0 [-c|--change-hostname <hostname>] [-a|--all] [-i|--install <options>] [-h|--help]"
@@ -104,7 +108,7 @@ install_docker_engine() {
 # Function to append aliases from aliases.txt to ~/.zshrc file
 append_aliases() {
     local zshrc_file="$HOME/.zshrc"
-    local aliases_file="aliases.txt"
+    local aliases_file="$ALIASES"
 
     # Check if aliases.txt file exists
     if [ -f "$aliases_file" ]; then
@@ -221,7 +225,7 @@ update_packages() {
 # Function to install packages from packages.txt file
 install_packages() {
     # Check if packages.txt file exists
-    if [ -f "packages.txt" ]; then
+    if [ -f "$PACKAGES" ]; then
         # Read package names from packages.txt file and install them using apt
         sudo apt install -y $(cat packages.txt)
         echo "Packages installed successfully."
@@ -234,7 +238,7 @@ install_packages() {
 # Function to create folders from folders.txt file
 create_folders() {
     # Check if folders.txt file exists
-    if [ -f "folders.txt" ]; then
+    if [ -f "$FOLDERS" ]; then
         # Read folder names from folders.txt file and create them
         while IFS= read -r folder_name; do
             mkdir -p "$folder_name"
