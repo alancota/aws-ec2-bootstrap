@@ -14,6 +14,8 @@ usage() {
     echo "  - ohmyzsh"
     echo "  - nerdfonts"
     echo "  - pk10"
+    echo "  - docker"
+    echo "  - pyenv"
     echo "  - all"
     exit 1
 }
@@ -132,6 +134,7 @@ append_aliases() {
 
 # Function to create a backup of ~/.zshrc file
 backup_zshrc() {
+    echo "Creating backup of ~/.zshrc"
     local zshrc_file="$HOME/.zshrc"
 
     # Check if ~/.zshrc file exists
@@ -146,7 +149,8 @@ backup_zshrc() {
 }
 
 # Function to prepend Pyenv configuration to ~/.zshrc file
-prepend_configuration() {
+add_pyenv_configuration() {
+    echo "Adding Pyenv configuration to ~/.zshrc"
     local zshrc_file="$HOME/.zshrc"
     local timestamp=$(date +"%m/%d/%Y %T")
     local configuration="# Timestamp: $timestamp
@@ -178,6 +182,7 @@ install_pyenv() {
     echo "Installing Python uving Pyenv..."
     sudo apt-get update
     git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+    add_pyenv_configuration
 }
 
 # Function to install Ubuntu font management package and nerd fonts
@@ -270,6 +275,7 @@ install_options() {
         nerdfonts) install_nerdfonts ;;
         pk10) install_powerlevel10k ;;
         docker) install_docker ;;
+        pyenv) install_pyenv ;;
         all) install_powerlevel10k ;;
         *)
             echo "Error: Unknown installation option '$option'."
@@ -328,6 +334,7 @@ if [ -z "$install_options_list" ]; then
     echo "  - nerdfonts"
     echo "  - pk10"
     echo "  - docker"
+    echo "  - pyenv"
     echo "  - all"
     exit 1
 fi
