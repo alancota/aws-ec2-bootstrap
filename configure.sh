@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Parse arguments from URL
+args=$(echo "$1" | awk -F'=' '{print $2}')
+
 ALIASES="https://raw.githubusercontent.com/alancota/aws-ec2-bootstrap/main/aliases.txt"
 FOLDERS="https://github.com/alancota/aws-ec2-bootstrap/blob/main/folders.txt"
 PACKAGES="https://github.com/alancota/aws-ec2-bootstrap/blob/main/packages.txt"
