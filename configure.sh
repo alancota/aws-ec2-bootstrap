@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Load custom functions
-source "$(dirname $0)/functions.zsh"
+source "https://raw.githubusercontent.com/alancota/aws-ec2-bootstrap/main/functions.zsh"
 
 p_msg "Starting the configuration of this new Ubuntu EC2 instance..."
 
@@ -47,7 +47,7 @@ if [ "$3" == "true" ]; then
     p_msg "Installing Powerlevel10k"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-    Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc
+    Set ZSH_THEME="powerlevel10k/powerlevel10k" in https://github.com/alancota/aws-ec2-bootstrap/blob/main/configure.sh~/.zshrc
 else
     p_msg "Powerlevel10k installation skipped"
 fi
